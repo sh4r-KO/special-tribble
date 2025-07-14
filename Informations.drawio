@@ -1,0 +1,157 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" version="27.2.0" pages="3">
+  <diagram name="Page-1" id="PpLuvKgXR1cycfUdP8N_">
+    <mxGraphModel dx="1988" dy="1049" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="OttVHMf_RPyd4eU70FB--28" value="YAML/TOML&amp;nbsp;&lt;div&gt;a run_config file&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="161" y="22" width="180" height="360.5" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="OttVHMf_RPyd4eU70FB--1" target="OttVHMf_RPyd4eU70FB--7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--1" value="backtrader_test" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="414" y="199.5" width="152" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="OttVHMf_RPyd4eU70FB--3" target="OttVHMf_RPyd4eU70FB--1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--3" value="strats" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="194" y="224" width="114" height="57" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="OttVHMf_RPyd4eU70FB--4" target="OttVHMf_RPyd4eU70FB--3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--19" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="OttVHMf_RPyd4eU70FB--4" target="OttVHMf_RPyd4eU70FB--13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--20" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="OttVHMf_RPyd4eU70FB--4" target="OttVHMf_RPyd4eU70FB--15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="OttVHMf_RPyd4eU70FB--4" target="OttVHMf_RPyd4eU70FB--24" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-138" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--4" value="see a strat&lt;div&gt;do some research&lt;/div&gt;" style="shape=mxgraph.signs.healthcare.eye;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;" parent="1" vertex="1">
+          <mxGeometry x="-168" y="225" width="99" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="OttVHMf_RPyd4eU70FB--7" target="OttVHMf_RPyd4eU70FB--11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--7" value="results.csv" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="635" y="199.5" width="152" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--27" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="OttVHMf_RPyd4eU70FB--1" target="OttVHMf_RPyd4eU70FB--26" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--11" value="Power BI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="867" y="199.5" width="152" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="OttVHMf_RPyd4eU70FB--13" target="OttVHMf_RPyd4eU70FB--1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--13" value="stock(s) choice" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="194" y="161" width="114" height="57" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="OttVHMf_RPyd4eU70FB--15" target="OttVHMf_RPyd4eU70FB--1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--15" value="time period" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="194" y="287" width="114" height="57" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="OttVHMf_RPyd4eU70FB--11" target="OttVHMf_RPyd4eU70FB--4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1068" y="252" />
+              <mxPoint x="1068" y="409" />
+              <mxPoint x="-221" y="409" />
+              <mxPoint x="-221" y="252" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--22" value="feedback" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="OttVHMf_RPyd4eU70FB--21" vertex="1" connectable="0">
+          <mxGeometry x="0.0153" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--24" value="decision to actualy use stock" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="-194.5" y="19" width="152" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="OttVHMf_RPyd4eU70FB--26" value="run_meta.json&lt;div&gt;get history of code and data&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="635" y="14" width="152" height="106" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="wu6eLkEy-QLBU9SzQ8Wd" name="Page-2">
+    <mxGraphModel dx="1239" dy="898" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2_683GzcOg6-tzV2Ec2P-1" value="todo" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-136" y="-201" width="300" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="uV68EcK6joVEOVaFNvzS-3" value="trop de tickers ignoré lors de la liste de 500" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;strokeWidth=1;opacity=50;" parent="2_683GzcOg6-tzV2Ec2P-1" vertex="1">
+          <mxGeometry y="30" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eo-tqrcWiLPqT2ft7SG5-1" value="run_meta.json trace of code used and results of that code" style="text;strokeColor=#7D7D7D;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;strokeWidth=1;opacity=50;" parent="2_683GzcOg6-tzV2Ec2P-1" vertex="1">
+          <mxGeometry y="60" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uV68EcK6joVEOVaFNvzS-5" value="mettre en place une étude de la P-value des indicateurs à l&#39;aide de permutation backtesting" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;strokeWidth=1;opacity=50;" parent="2_683GzcOg6-tzV2Ec2P-1" vertex="1">
+          <mxGeometry y="90" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uV68EcK6joVEOVaFNvzS-14" value="BTC seulement 200 valeures extraite d&#39;alpha" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;strokeWidth=1;opacity=50;" parent="2_683GzcOg6-tzV2Ec2P-1" vertex="1">
+          <mxGeometry y="120" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-RUpofSE1hd5LHela24s-1" value="l&#39;import utilisant stooq prend pas en compte le fichier de config yaml" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;strokeWidth=1;opacity=50;" vertex="1" parent="2_683GzcOg6-tzV2Ec2P-1">
+          <mxGeometry y="150" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uV68EcK6joVEOVaFNvzS-4" value="aucun compte rendu d&#39;éxécution + meilleur visu de return" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;strokeWidth=1;opacity=50;" parent="2_683GzcOg6-tzV2Ec2P-1" vertex="1">
+          <mxGeometry y="180" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2_683GzcOg6-tzV2Ec2P-5" value="done" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="164" y="-201" width="300" height="234" as="geometry" />
+        </mxCell>
+        <mxCell id="2_683GzcOg6-tzV2Ec2P-3" value="results.csv" style="text;strokeColor=#7D7D7D;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;strokeWidth=1;opacity=50;" parent="2_683GzcOg6-tzV2Ec2P-5" vertex="1">
+          <mxGeometry y="30" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2_683GzcOg6-tzV2Ec2P-2" value="single config file YAML/TOML" style="text;strokeColor=#7D7D7D;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;strokeWidth=1;opacity=50;" parent="2_683GzcOg6-tzV2Ec2P-5" vertex="1">
+          <mxGeometry y="60" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uV68EcK6joVEOVaFNvzS-1" value="power bi erreur de filtre quand rien n&#39;est coché, prend la valeure minimum(kpi remplacé par gauge)" style="text;strokeColor=#b85450;fillColor=#f8cecc;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;strokeWidth=1;opacity=50;" parent="2_683GzcOg6-tzV2Ec2P-5" vertex="1">
+          <mxGeometry y="90" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uV68EcK6joVEOVaFNvzS-13" value="alpha et stooqdl ne sont pas solicité lors de l&#39;import des 500 tickers, ça force yfinance à importer&amp;nbsp; -&amp;gt; LAG colossal" style="text;strokeColor=#b85450;fillColor=#f8cecc;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;strokeWidth=1;opacity=50;" parent="2_683GzcOg6-tzV2Ec2P-5" vertex="1">
+          <mxGeometry y="120" width="300" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="uV68EcK6joVEOVaFNvzS-2" value="div/0 quand on essaie de faire la liste des 500 tickers" style="text;strokeColor=#7D7D7D;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;strokeWidth=1;opacity=50;" parent="2_683GzcOg6-tzV2Ec2P-5" vertex="1">
+          <mxGeometry y="174" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2_683GzcOg6-tzV2Ec2P-4" value="power BI visual" style="text;strokeColor=#7D7D7D;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;strokeWidth=1;opacity=50;" parent="2_683GzcOg6-tzV2Ec2P-5" vertex="1">
+          <mxGeometry y="204" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-RUpofSE1hd5LHela24s-2" value="l&#39;import utilisant stooq prend pas en compte le fichier de config yaml" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;strokeWidth=1;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="-136" y="149" width="300" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="z7ww-3QPRUB0mfgvtWjP" name="Page-3">
+    <mxGraphModel dx="1426" dy="846" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Z85VfLSoGlAw_amBVROT-1" value="Stooq" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="50" y="130" width="190" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Z85VfLSoGlAw_amBVROT-2" value="Polygon" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="130" width="190" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Z85VfLSoGlAw_amBVROT-3" value="Alpha Vantage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="450" y="130" width="190" height="130" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

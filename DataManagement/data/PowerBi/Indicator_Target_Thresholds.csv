@@ -1,0 +1,15 @@
+indicator,minimal target,good target,best target
+Calmar Ratio,0.3,0.5,1.0
+Sharpe Ratio,0.25,0.5,1.0
+Sortino Ratio,0.5,1.0,2.0
+Profit Factor,1.0,1.2,2.0
+Win Rate (%),0.3,0.5,0.6
+rnorm100 (%),0.0,0.01,0.02
+Max Drawdown (%),-1,-0.25,-0.15
+Expectancy,0.05,0.1,0.2
+SQN,1.0,2.0,3.0
+VWR (Ratio),1.0,1.5,2.0
+Total Return (%),0.0,0.3,0.6
+Sortino, 1,1.5,2
+Sharpe (Daily),0.01,0.05,0.1
+Time DD (bars),5000.0,1000.0,250.0
