@@ -47,6 +47,15 @@ from tqdm import tqdm
 TRADING_DAYS = 252  # annualisation factor
 METRICS = ["sharpe", "sortino", "max_dd"]
 
+SUMMARY_COLS = [
+    "symbol",
+    "metric",
+    "obs_value",      # <-- the number you asked for
+    "p_value",
+    "holm_adj",
+    "bh_adj",
+]
+
 # ---------------------------------------------------------------------------
 # Helpers – stats & KPI
 # ---------------------------------------------------------------------------
@@ -215,11 +224,12 @@ def run_symbol(
     for i, m in enumerate(METRICS):
         summary_rows.append(
             {
-                "symbol": symbol,
-                "metric": m,
-                "p_value": raw[i],
-                "holm_adj": holm[i],
-                "bh_adj": bh[i],
+                "symbol":    symbol,
+                "metric":    m,
+                "obs_value": obs_metrics[m],   # <-- NEW FIELD
+                "p_value":   raw[i],
+                "holm_adj":  holm[i],
+                "bh_adj":    bh[i],
             }
         )
 
@@ -238,7 +248,7 @@ def main():
     parser.add_argument("--symbols", nargs="+", required=True)
     parser.add_argument("--start", required=True)
     parser.add_argument("--end", required=True)
-    parser.add_argument("--n", type=int, default=10000)
+    parser.add_argument("--n", type=int, default=50000)
     parser.add_argument("--combine", choices=["fisher", "stouffer"], default="fisher")
     parser.add_argument("--outdir", default="output")
     parser.add_argument("--seed", type=int, default=42)
@@ -262,15 +272,18 @@ def main():
     for m in METRICS:
         combined = combine_pvalues(pvals_by_metric[m], method=args.combine)[1]
         all_rows.append({
-            "symbol": "COMBINED",
-            "metric": m,
-            "p_value": combined,
-            "holm_adj": "",
-            "bh_adj": "",
+            "symbol":    "COMBINED",
+            "metric":    m,
+            "obs_value": "",              # no single observed value here
+            "p_value":   combined,
+            "holm_adj":  "",
+            "bh_adj":    "",
         })
 
-    pd.DataFrame(all_rows).to_csv(out_root / "summary_metrics.csv", index=False)
-
+    pd.DataFrame(all_rows)[SUMMARY_COLS].to_csv(
+        out_root / "summary_metrics.csv",
+        index=False,
+    )
     print("==============================")
     print("Combined p‑values across symbols (method: %s)" % args.combine)
     for m in METRICS:

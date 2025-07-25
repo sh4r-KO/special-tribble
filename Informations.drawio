@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" version="27.2.0" pages="3">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" version="28.0.4" pages="4">
   <diagram name="Page-1" id="PpLuvKgXR1cycfUdP8N_">
-    <mxGraphModel dx="1988" dy="1049" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1826" dy="846" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -75,7 +75,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="OttVHMf_RPyd4eU70FB--24" value="decision to actualy use stock" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+        <mxCell id="OttVHMf_RPyd4eU70FB--24" value="decision to actualy use Strategy X" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
           <mxGeometry x="-194.5" y="19" width="152" height="106" as="geometry" />
         </mxCell>
         <mxCell id="OttVHMf_RPyd4eU70FB--26" value="run_meta.json&lt;div&gt;get history of code and data&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
@@ -138,7 +138,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="z7ww-3QPRUB0mfgvtWjP" name="Page-3">
-    <mxGraphModel dx="1426" dy="846" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1141" dy="677" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -146,13 +146,242 @@
           <mxGeometry x="50" y="130" width="190" height="130" as="geometry" />
         </mxCell>
         <mxCell id="Z85VfLSoGlAw_amBVROT-2" value="Polygon" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="270" y="140" width="190" height="130" as="geometry" />
+          <mxGeometry x="260" y="130" width="190" height="130" as="geometry" />
         </mxCell>
         <mxCell id="Z85VfLSoGlAw_amBVROT-3" value="Alpha Vantage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="450" y="130" width="190" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="a55uTZZsptDvZ7E5Qjem-1" value="Polygon" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="270" y="320" width="190" height="130" as="geometry" />
+        <mxCell id="JKdoJgSeVnA_RLSkaAY_-1" value="&lt;br&gt;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;#&lt;/th&gt;&lt;th&gt;Section&lt;/th&gt;&lt;th&gt;What it must contain&lt;/th&gt;&lt;th&gt;Why it matters&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;0&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Front Matter&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;• Title, author(s), version/date• Confidentiality &amp;amp; disclaimers&lt;/td&gt;&lt;td&gt;Sets context; traceability.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Executive Summary&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;• One-paragraph strategy thesis• Headline performance (CAGR, Sharpe, Max-DD)• Single-sentence verdict (“Reject H₀ at 5 %; ready for paper-trade”)&lt;/td&gt;&lt;td&gt;Busy readers decide in 60 s whether to dive deeper.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Hypothesis &amp;amp; Objectives&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;• Economic intuition / market anomaly• Null &amp;amp; alternative hypotheses• Target use-case (alpha, hedge, market-making)&lt;/td&gt;&lt;td&gt;Frames every subsequent metric and test.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Data &amp;amp; Sample&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;• Source(s), asset universe, date range, bar frequency• Adjustments (splits, dividends), survivorship bias handling• Data-quality stats (% gaps, corrections)&lt;/td&gt;&lt;td&gt;Garbage-in-garbage-out guardrail.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;4&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Backtest Methodology&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;• Engine &amp;amp; version (e.g., Backtrader 1.9.78)• Transaction-cost model (commissions, slippage, borrow fees)• Position sizing, leverage limits• In-sample / out-of-sample splits, walk-forward scheme&lt;/td&gt;&lt;td&gt;Ensures results are reproducible and not over-optimistic.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;5&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Strategy Specification&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;• Pseudocode or flow diagram• Parameter values &amp;amp; ranges• Dependency list (indicators, risk filters)&lt;/td&gt;&lt;td&gt;Lets another quant implement it verbatim.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;6&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Indicator Deep-Dive&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;For each indicator:• Formula, parameters• Role (signal, filter, scaler)• Interpretation of readings• Statistical validity (p-values)• Limitations&lt;/td&gt;&lt;td&gt;Shows the microscopic evidence behind each rule.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;7&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Performance Results&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;• Equity curve(s) &amp;amp; table of KPIs: CAGR, vol, Sharpe, Sortino, Calmar, hit-rate, payoff ratio• Per-year, per-asset breakdowns• Heat maps or box-plots&lt;/td&gt;&lt;td&gt;Core deliverable: “Does it make money?”&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;8&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Risk Analysis&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;• Max &amp;amp; average drawdown, duration• Rolling Sharpe / volatility plots• Tail metrics (VaR, CVaR, worst 1-day/5-day loss)• Exposure/turnover stats&lt;/td&gt;&lt;td&gt;Quantifies pain and capital efficiency.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;9&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Statistical Significance&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;• Test description (permutation, bootstrap, t-test, etc.)• p-values with multiple-testing adjustment• Economic vs. statistical significance commentary&lt;/td&gt;&lt;td&gt;Separates luck from skill.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;10&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Robustness &amp;amp; Sensitivity&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;• Parameter sweeps / tornado charts• Walk-forward or expanding-window results• Stress tests: higher costs, delayed fills, data-source swap&lt;/td&gt;&lt;td&gt;Demonstrates stability outside the sweet spot.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;11&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Benchmark &amp;amp; Peer Comparison&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;• Passive index, factor portfolio, or alternative strategy• Excess return &amp;amp; information ratio• Correlations&lt;/td&gt;&lt;td&gt;Shows incremental value.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;12&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Operational Considerations&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;• Liquidity &amp;amp; market-impact estimate• Trade schedule (intraday timing, end-of-day)• Tech stack, data latency, fail-safes&lt;/td&gt;&lt;td&gt;Bridges research and live deployment.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;13&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Discussion &amp;amp; Conclusions&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;• Key strengths &amp;amp; failure modes• Risk/return trade-off evaluation• Next-step roadmap (paper-trade, parameter retune, kill)&lt;/td&gt;&lt;td&gt;Synthesises evidence into a decision.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;14&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Appendices&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;• Full code listings / git commit hash• Parameter tables, additional figs• Glossary of terms• Raw stats dumps (CSV)&lt;/td&gt;&lt;td&gt;Keeps main body lean while retaining full transparency.&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="425" y="320" width="1125" height="550" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="tqpqIosppI1DwAaFI1QR" name="architecture">
+    <mxGraphModel dx="1426" dy="446" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-100" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-92" target="8nP93zWZ0W2r0BhVzif6-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-92" value="datalake&lt;div&gt;HDFS&lt;/div&gt;&lt;div&gt;&lt;div&gt;Store raw historical data in compressed, queryable format.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="1761" y="1149" width="498" height="244" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-80" target="8nP93zWZ0W2r0BhVzif6-82">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-80" value="Experiment Tracker&amp;nbsp;&lt;div&gt;CSV Logs&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="1761" y="1419" width="498" height="244" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-22" target="8nP93zWZ0W2r0BhVzif6-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-22" value="ingestion layer&lt;div&gt;KAFKA&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="396" y="1064" width="647" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-23" target="8nP93zWZ0W2r0BhVzif6-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-23" value="raw datalake&lt;div&gt;HDFS&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="396" y="1132" width="647" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-24" target="8nP93zWZ0W2r0BhVzif6-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-24" value="feature pipeline (factor generation)&lt;div&gt;SPARK&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="396" y="1199" width="647" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-25" target="8nP93zWZ0W2r0BhVzif6-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-25" value="&lt;div&gt;&amp;nbsp;Research Engine&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(Backtester, Permutation&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Test, Tuning)&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;C++ / Python ?&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="396" y="1267" width="647" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-26" target="8nP93zWZ0W2r0BhVzif6-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-26" value="Experiment Tracker&amp;nbsp;&lt;div&gt;CSV Logs&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="396" y="1334" width="647" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-27" value="Dashboard / UI&amp;nbsp;&lt;div&gt;grafana / elastic ?&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="396" y="1402" width="647" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="732" y="1018" as="sourcePoint" />
+            <mxPoint x="732" y="1064" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-28" value="market data feed&lt;div&gt;API&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="396" y="968" width="647" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-35" target="8nP93zWZ0W2r0BhVzif6-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-35" value="market data feed&lt;div&gt;API&lt;/div&gt;&lt;div&gt;&lt;div&gt;Get price, volume, fundamentals, and alt-data from external providers.&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="1238" y="875" width="473" height="241" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-36" value="sources :&lt;table&gt;&lt;tbody&gt;&lt;tr data-end=&quot;589&quot; data-start=&quot;500&quot;&gt;&lt;td data-end=&quot;589&quot; data-start=&quot;517&quot; data-col-size=&quot;md&quot;&gt;Polygon, Yahoo Finance, Binance, Interactive Brokers, Tiingo, Quandl&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1254" y="930" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-37" value="types :&amp;nbsp;&lt;div&gt;OHLCV, tick, order book, fundamentals, news&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1482" y="930" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-40" value="format :&amp;nbsp;&lt;div&gt;JSON / CSV via REST&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1254" y="991" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-41" value="transport :&amp;nbsp;&lt;div&gt;API Pull (requests), WebSocket (for tick)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1482" y="991" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-43" value="Tech :&amp;nbsp;&lt;div&gt;&lt;code data-end=&quot;788&quot; data-start=&quot;778&quot;&gt;requests&lt;/code&gt;, &lt;code data-end=&quot;802&quot; data-start=&quot;790&quot;&gt;websockets&lt;/code&gt;, &lt;code data-end=&quot;810&quot; data-start=&quot;804&quot;&gt;ccxt&lt;/code&gt;, or custom REST clients&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1254" y="1051" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-44" target="8nP93zWZ0W2r0BhVzif6-92">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2008" y="1148.9999999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-44" value="ingestion layer&lt;div&gt;KAFKA&lt;/div&gt;&lt;div&gt;&lt;div&gt;Stream real-time data into your platform and buffer it for processing.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="1761" y="873.5" width="498" height="244" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-45" value="Borker : KAFKA" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1787" y="924.5" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-46" value="Topics :&amp;nbsp;&lt;span style=&quot;background-color: transparent;&quot;&gt;prices_&amp;lt;symbol&amp;gt;, tickers, fundamentals&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1787" y="978.5" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-47" value="Producer :&amp;nbsp;Python script or connector that pushes raw API data" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1787" y="1032.5" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-48" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;consumer : spark streaming jobs&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2013" y="978.5" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-49" value="Format :&lt;div&gt;Avro (distributed)| JSON (testing only)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2013" y="924.5" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-50" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Tech : python&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2013" y="1032.5" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-62" target="8nP93zWZ0W2r0BhVzif6-70">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-62" value="feature pipeline (factor generation)&lt;div&gt;SPARK&lt;/div&gt;&lt;div&gt;&lt;div&gt;Process raw data into engineered features (factors, signals, labels).&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="1225.5" y="1149" width="498" height="244" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-63" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Engine :&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;div style=&quot;&quot;&gt;Apache Spark (batch or structured streaming)&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="1209" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-64" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;Feature Types&lt;/span&gt;&lt;span style=&quot;background-color: transparent; white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;div style=&quot;&quot;&gt;&lt;div&gt;Momentum, volatility, trend, seasonal effects&lt;/div&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1479" y="1209" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-65" value="&lt;div&gt;language : pyspark&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1479" y="1269" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-68" value="&lt;div&gt;Output :&lt;/div&gt;&lt;div&gt;Parquet table (features.parquet) with symbol/date&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="1269" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-70" target="8nP93zWZ0W2r0BhVzif6-80">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-70" value="&lt;div&gt;&lt;div&gt;&lt;div&gt;&amp;nbsp;Research Engine (Backtester, Permutation Test, Tuning)&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;Python&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;Run backtests, validate signals, optimize strategy parameters.&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="1225.5" y="1419" width="498" height="244" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-72" value="Backtester:&lt;div&gt;&lt;div&gt;Backtrader&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1243.5" y="1475" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-73" value="Validation :&lt;div&gt;&lt;div&gt;Permutation test, walk-forward test, cross-validation&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1243.5" y="1532" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-74" value="interface :&lt;div&gt;Python script with config-driven inputs&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1469.5" y="1475" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-75" value="Metrics :&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Sharpe, Sortino, CAGR, Max DD, PF&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1243.5" y="1589" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-76" value="Tuning :&lt;div&gt;&lt;div&gt;Grid/random search; Bayesian optimization via optuna&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1469.5" y="1532" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-78" value="Saved Data :&lt;div&gt;&lt;div&gt;strategy name, params, performance, run ID, timestamp&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2022" y="1462" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-81" value="Experiment Tracker&amp;nbsp;&lt;div&gt;CSV Logs&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2399" y="2212" width="647" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-82" value="Dashboard / UI&amp;nbsp;&lt;div&gt;grafana / elastic ?&lt;/div&gt;&lt;div&gt;&lt;div&gt;Visualize strategy performance, diagnostics, and alerts.&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="1761" y="1686" width="498" height="244" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-83" value="Storage :&lt;div&gt;SQLite&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1795" y="1462" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-84" value="Minimal :&lt;div&gt;&lt;div&gt;CSV or JSON logs of metrics and parameters&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1795" y="1518" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-85" value="Upgraded :&lt;div&gt;&lt;div&gt;MLflow, Weights &amp;amp; Biases, Neptune.ai&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2022" y="1518" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-88" value="We&#39;ll see later" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1918" y="1787" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-93" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Storage : HDFS&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1958" y="1261" width="95" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-94" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Format :&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;Parquet, Delta Lake (append-only, schema-aware)&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1787" y="1261" width="167" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-95" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Partitionning :&lt;/span&gt;&lt;/div&gt;&lt;div&gt;symbol=XYZ/date=YYYY-MM-DD&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1787" y="1315" width="167" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-96" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Tools :&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;pyarrow, fastparquet, delta-rs, hdfs CLI&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1787" y="1207" width="167" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-97" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Access :&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;Spark / Pandas&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1958" y="1207" width="95" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-99" value="Raw Zone&lt;div&gt;untouched CSV/JSON dumps (append-only)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="2099" y="1217" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-104" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-101" target="8nP93zWZ0W2r0BhVzif6-103">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-101" value="kafka producer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1343.5" y="678" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-106" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-103" target="8nP93zWZ0W2r0BhVzif6-105">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-103" value="kafka consumer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1543.5" y="678" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-111" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-105" target="8nP93zWZ0W2r0BhVzif6-110">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-105" value="raw Data Lake" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1743.5" y="678" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-115" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-107" target="8nP93zWZ0W2r0BhVzif6-114">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-107" value="processed data lake" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1902" y="678" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-112" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-110" target="8nP93zWZ0W2r0BhVzif6-107">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-110" value="data process" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1816" y="549" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-118" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8nP93zWZ0W2r0BhVzif6-114" target="8nP93zWZ0W2r0BhVzif6-117">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-114" value="feature pipeline" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="2102" y="678" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-116" value="Processed Zone&lt;div&gt;&lt;div&gt;cleaned &amp;amp; validated Parquet&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1414.5" y="1327" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8nP93zWZ0W2r0BhVzif6-117" value="research engine" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="2277" y="667" width="150" height="82" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

@@ -1,0 +1,20 @@
+guirre@sh4r-K0:~/Desktop/projectpyspark2$ sudo docker-compose exec spark-master bash
+I have no name!@59db5573e107:/opt/bitnami/spark$ ls
+LICENSE  R	    RELEASE  conf	   data      jars	 licenses  opt	   sbin  venv  yarn
+NOTICE	 README.md  bin      conf.default  examples  kubernetes  logs	   python  tmp	 work
+I have no name!@59db5573e107:/opt/bitnami/spark$ cd ..
+I have no name!@59db5573e107:/opt/bitnami$ cd ..
+I have no name!@59db5573e107:/opt$ cd ..
+I have no name!@59db5573e107:/$ ls
+bin  boot  dev	etc  home  lib	lib64  media  mnt  opt	proc  root  run  sbin  srv  sys  tmp  usr  var
+I have no name!@59db5573e107:/$ cd opt/
+I have no name!@59db5573e107:/opt$ cd bitnami/s
+scripts/ spark/   
+I have no name!@59db5573e107:/opt$ cd bitnami/spark/
+I have no name!@59db5573e107:/opt/bitnami/spark$ ls
+LICENSE  R	    RELEASE  conf	   data      jars	 licenses  opt	   sbin  venv  yarn
+NOTICE	 README.md  bin      conf.default  examples  kubernetes  logs	   python  tmp	 work
+I have no name!@59db5573e107:/opt/bitnami/spark$ cd opt/
+I have no name!@59db5573e107:/opt/bitnami/spark/opt$ cd bitnami/spark/jobs/
+I have no name!@59db5573e107:/opt/bitnami/spark/opt/bitnami/spark/jobs$ ls
+I have no name!@59db5573e107:/opt/bitnami/spark/opt/bitnami/spark/jobs$ 
