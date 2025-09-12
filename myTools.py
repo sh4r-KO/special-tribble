@@ -48,6 +48,10 @@ def load_comission(yaml_path: str | Path = "config.yaml") -> float:
     cfg = _load_cfg(yaml_path)
     return float(cfg.get("commission", 0.001))
 
+def load_slippage(yaml_path: str | Path = "config.yaml") -> float:
+    """Return slippage (fractional, e.g. 0.0005 → 0.05 %)."""
+    cfg = _load_cfg(yaml_path)
+    return float(cfg.get("slippage", 0.0005))
 
 def load_output_csv(yaml_path: str | Path = "config.yaml") -> str:
     """Return the CSV filename for results."""

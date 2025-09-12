@@ -147,6 +147,7 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
     cerebro = bt.Cerebro(stdstats=True)
     cerebro.broker.setcash(load_capital())
     cerebro.broker.setcommission(commission=load_comission())
+    cerebro.broker.setslippage_perc(perc=load_slippage(), slip_open=True, slip_limit=True, slip_match=True, slip_out=False)
 
     cerebro.addsizer(bt.sizers.PercentSizer, percents=95)#added for sharpeRatio
     
