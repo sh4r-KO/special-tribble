@@ -51,54 +51,71 @@ DATA_DIRS = [
 ]
 
 # ────────────────────────── HELPER FUNCTIONS ──────────────────────────
+DOWNLOADED_ONCE: set[str] = set()   # symbols we already tried to fetch locally
+
+def _find_local_csv(symbol: str) -> Path | None:
+    for root in DATA_DIRS:
+        cand = next(root.glob(f"{symbol}*.csv"), None)
+        if cand:
+            return cand
+    return None
 
 
-# backtradercsvexport.py   (same place as before)
 def make_feed(symbol: str,
               start="2005-01-01",
               end=None,
               auto_adjust=False) -> bt.feeds.PandasData | None:
     """
-    1) Try to load a local CSV from DataManagement/data/*
-    2) Otherwise fall back to yfinance daily data.
-       Returns None when Yahoo sends back an empty DataFrame.
+    1) Try to load a local CSV from DataManagement/data/*.
+    2) If none exists, try a one-time local download/import for this symbol.
+    3) If still missing, fall back to yfinance.
     """
-    #import data using other thatn yfiannce
-    av_doawnloader_main("config2.yaml")
-    import_stooq()
+    # ---- 1) local CSV (no network) ----------------------------------------
+    cand = _find_local_csv(symbol)
+    if cand:
+        tf   = bt.TimeFrame.Minutes if "_m" in cand.stem else bt.TimeFrame.Days
+        comp = int(cand.stem.split("_")[-1][:-1]) if "_m" in cand.stem else 1
+        fmt  = "%Y-%m-%d %H:%M:%S" if tf is bt.TimeFrame.Minutes else "%Y-%m-%d"
+        print("using local file:", cand)
+        return bt.feeds.GenericCSVData(
+            dataname     = str(cand),
+            dtformat     = fmt,
+            timeframe    = tf,
+            compression  = comp,
+            datetime     = 0, open=1, high=2, low=3, close=4, volume=5,
+            openinterest = -1,
+        )
 
-    # -------- 1. local CSV ---------------------------------------------------
-    for root in DATA_DIRS:
-        for fname in root.glob(f"{symbol}*.csv"):
-            tf   = bt.TimeFrame.Minutes if "_m" in fname.stem else bt.TimeFrame.Days
-            comp = int(fname.stem.split("_")[-1][:-1]) if "_m" in fname.stem else 1
+    # ---- 2) one-time attempt to populate local cache for this symbol ------
+    if symbol not in DOWNLOADED_ONCE:
+        try:
+            # NOTE: these should be idempotent (no overwrite if file exists)
+            av_doawnloader_main(CONFIG_FILE)
+            import_stooq()
+        except Exception as err:
+            print(f"[warn] local data fetchers failed for {symbol}: {err}")
+        finally:
+            DOWNLOADED_ONCE.add(symbol)
+
+        cand = _find_local_csv(symbol)
+        if cand:
+            tf   = bt.TimeFrame.Minutes if "_m" in cand.stem else bt.TimeFrame.Days
+            comp = int(cand.stem.split("_")[-1][:-1]) if "_m" in cand.stem else 1
             fmt  = "%Y-%m-%d %H:%M:%S" if tf is bt.TimeFrame.Minutes else "%Y-%m-%d"
-            print("used ",root,f"{symbol}*.csv")
+            print("using local file after fetch:", cand)
             return bt.feeds.GenericCSVData(
-                dataname     = str(fname),
+                dataname     = str(cand),
                 dtformat     = fmt,
                 timeframe    = tf,
                 compression  = comp,
-                datetime     = 0,
-                open         = 1,
-                high         = 2,
-                low          = 3,
-                close        = 4,
-                volume       = 5,
+                datetime     = 0, open=1, high=2, low=3, close=4, volume=5,
                 openinterest = -1,
             )
 
-    # -------- 2. yfinance fallback ------------------------------------------
-    ysym = symbol.replace(".", "-").upper()            # BRK.B → BRK-B
+    # ---- 3) fallback: yfinance --------------------------------------------
+    ysym = symbol.replace(".", "-").upper()
     try:
-        df = yf.download(
-            ysym,
-            start=start,
-            end=end,
-            progress=False,
-            threads=False,
-            auto_adjust=auto_adjust,        # be explicit!
-        )
+        df = yf.download(ysym, start=start, end=end, progress=False, threads=False, auto_adjust=auto_adjust)
     except Exception as err:
         print(f"[skip] {symbol}: yfinance error → {err}")
         return None
@@ -106,15 +123,16 @@ def make_feed(symbol: str,
     if df.empty:
         print(f"[skip] {symbol}: no data from Yahoo")
         return None
-    elif len(df) < MINBARS:                 # ← ➊ NEW guard
+    elif len(df) < MINBARS:
         print(f"[skip] {symbol}: only {len(df)} bars (< {MINBARS})")
         return None
 
-    if isinstance(df.columns, pd.MultiIndex):          # 1-hour bugs etc.
+    if isinstance(df.columns, pd.MultiIndex):
         df.columns = df.columns.get_level_values(0)
-    df.columns = [c.title() for c in df.columns]       # Open, High, …
-    print("used yfiannce for:",symbol)
+    df.columns = [c.title() for c in df.columns]
+    print("used yfinance for:", symbol)
     return bt.feeds.PandasData(dataname=df)
+
 
 
 
@@ -147,7 +165,7 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
     cerebro = bt.Cerebro(stdstats=True)
     cerebro.broker.setcash(load_capital())
     cerebro.broker.setcommission(commission=load_comission())
-    cerebro.broker.setslippage_perc(perc=load_slippage(), slip_open=True, slip_limit=True, slip_match=True, slip_out=False)
+    cerebro.broker.set_slippage_perc(perc=load_slippage(), slip_open=True, slip_limit=True, slip_match=True, slip_out=False)
 
     cerebro.addsizer(bt.sizers.PercentSizer, percents=95)#added for sharpeRatio
     

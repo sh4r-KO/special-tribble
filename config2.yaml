@@ -7,7 +7,7 @@ end:    "2020-01-01"       # back-test ends
 capital:    1000          # starting cash in account currency
 commission: 0.001          # 0.1 % per trade
 slippage:   0.0005         # 0.05 % slippage
-output_csv: results.csv    # summary results written here
+output_csv: DataManagement\data\PowerBi\results.csv    # summary results written here
 
 strats:
   - AdxBreakout
@@ -19,16 +19,16 @@ strats:
   - EmaCross
   - GoldenCross
   - GoldenCross
-  - IchimokuTrend
-  - KeltnerBreakout
-  - MacdSignal
-  - MaEnvelope
-  - MonthlyRotator
-  - Rsi2
-  - RsiStochCombo
-  - SmaCross
-  - TwelveMonthMomentum
-  - VwapReversion
+#  - IchimokuTrend
+#  - KeltnerBreakout
+#  - MacdSignal
+#  - MaEnvelope
+#  - MonthlyRotator
+#  - Rsi2
+#  - RsiStochCombo
+#  - SmaCross
+#  - TwelveMonthMomentum
+#  - VwapReversion
 
 
 
