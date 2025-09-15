@@ -72,7 +72,7 @@ def load_strats(yaml_path: str | Path = "config.yaml") -> list[type]:
     If the key is missing, empty, "all", or "*", we simply return every
     class found by strats.retall() – identical to the old behaviour.
     """
-    from strats import retall as _all_strats                      # classes
+    from py.strats import retall as _all_strats                      # classes
     cfg  = _load_cfg(yaml_path)                                   # helper ②
     raw  = cfg.get("strats", [])                                  # list|str|…
     if raw in ("all", "*") or not raw:                            # no filter

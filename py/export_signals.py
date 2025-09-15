@@ -170,8 +170,8 @@ def export_signals(
 
 def main(argv: Iterable[str] | None = None):
     parser = argparse.ArgumentParser(description="Export per‑ticker signal CSVs from Backtrader strategies")
-    parser.add_argument("--config", default="config2.yaml", help="YAML config file (e.g. config2.yaml)")
-    parser.add_argument("--outdir", default="signals", help="Destination folder for CSVs")
+    parser.add_argument("--config", default="config.yaml", help="YAML config file (e.g. config.yaml)")
+    parser.add_argument("--outdir", default="/signals", help="Destination folder for CSVs")
     parser.add_argument("--strats", nargs="*", help="Names of strategy classes to include (default: all)")
     parser.add_argument("--commission", type=float, help="Override commission (fraction)")
     parser.add_argument("--data-dirs", nargs="*", help="Extra folders to search for price CSVs (overrides defaults)")

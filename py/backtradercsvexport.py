@@ -25,8 +25,8 @@ import numpy as np
 from pathlib import Path
 from DataManagement.av_downloader import av_doawnloader_main
 from DataManagement.fetch_stooq_daily import import_stooq
-from strats import *
-from myTools import *
+from py.strats import *
+from py.myTools import *
 
 # ─────────────────────────── CONFIGURATION ────────────────────────────
 #START = datetime(2023, 7, 7),END   = datetime(2025, 6, 6)
