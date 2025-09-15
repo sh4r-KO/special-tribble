@@ -31,7 +31,7 @@ from myTools import *
 # ─────────────────────────── CONFIGURATION ────────────────────────────
 #START = datetime(2023, 7, 7),END   = datetime(2025, 6, 6)
 
-CONFIG_FILE = "config2.yaml"
+CONFIG_FILE = "config.yaml"
 
 SYMBOLS = ["SPY", "QQQ", "MTUM","EEM","TLT","GLD","IEF","MSFT", "AAPL", "NVDA","META"]
 SYMBOLS = load_symbols(CONFIG_FILE)
