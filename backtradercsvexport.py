@@ -25,8 +25,15 @@ import numpy as np
 from pathlib import Path
 from DataManagement.av_downloader import av_doawnloader_main
 from DataManagement.fetch_stooq_daily import import_stooq
-from py.strats import *
-from py.myTools import *
+
+from strats import *
+from myTools import *
+
+import matplotlib
+matplotlib.use("Agg")                  # no GUI
+import matplotlib.pyplot as plt
+import backtrader as bt
+from strats import SmaCross
 
 # ─────────────────────────── CONFIGURATION ────────────────────────────
 #START = datetime(2023, 7, 7),END   = datetime(2025, 6, 6)
@@ -170,16 +177,12 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
     cerebro.addsizer(bt.sizers.PercentSizer, percents=95)#added for sharpeRatio
     
     feed = make_feed(symbol)
-    if feed is None:                   # << new
+    if feed is None:             
             return {} 
 
     cerebro.adddata(feed, name=symbol)
-    
-    
     cerebro.addstrategy(strat_cls)
 
-    # ʜᴜɢᴇ list of analyzers — use what fits your BT version
-# ───── inside run_one() ─────
     _safe_add(cerebro, bt.analyzers.SharpeRatio,"sharpe",timeframe=bt.TimeFrame.Days)          # ← change
     _safe_add(cerebro, bt.analyzers.SharpeRatio_A,"sharpe_ann",timeframe=bt.TimeFrame.Days)          # ← change
     _safe_add(cerebro, bt.analyzers.DrawDown,         "dd")
@@ -191,6 +194,8 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
     _safe_add(cerebro, bt.analyzers.TradeAnalyzer,    "trades")
     _safe_add(cerebro, bt.analyzers.TimeReturn, "trets",timeframe=bt.TimeFrame.Days)
     strat = cerebro.run()[0]
+
+
 
     # small helper: fetch analyzer results if present
     def get(name: str, path=None, default=float("nan")):
@@ -254,11 +259,26 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
     else:
         win_rate = profit_factor = avg_trade_pl = float("nan")
 
+    # save png chart(s)
+    outdir = Path("charts")
+    outdir.mkdir(exist_ok=True)
+
+    figlists = cerebro.plot(iplot=False, style="candlestick", volume=True)
+
+
+    for i, figs in enumerate(figlists):
+        for j, f in enumerate(figs):
+            f.set_size_inches(14, 7)  # optional: resize
+            outfile = outdir / f"{symbol}_{strat_cls.__name__}_{i}_{j}.png"
+            f.savefig(outfile, dpi=150, bbox_inches="tight")
+            plt.close(f)  # free memory
+            print("Saved:", outfile)
+
     return {
         "Symbol": symbol,
         "Strategy": strat_cls.__name__,
         "TotalReturn_%": total_ret,
-        "rnorm100_%": rnorm100,#its not CAGR anymore, have to change name
+        "rnorm100_%": rnorm100,
         "SharpeDaily": sharpe_d,
         "SharpeAnnual": sharpe_ann,
         "Calmar": calmar,
@@ -272,6 +292,7 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
         "trades_total":trades_total,
         "Sortino": sortino
     }
+
 
 
 # ────────────────────────────── MAIN ─────────────────────────────────

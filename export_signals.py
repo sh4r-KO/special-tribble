@@ -161,7 +161,7 @@ def export_signals(
 
         outfile = outdir / f"{symbol}.csv"
         df.to_csv(outfile, float_format="%.0f")
-        print(f"   saved → {outfile.relative_to(Path.cwd())}")
+        print(f"   saved → {outfile.relative_to(Path.cwd().resolve())}")
 
 
 # --------------------------------------------------------------------------- 

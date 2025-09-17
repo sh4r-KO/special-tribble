@@ -10,14 +10,13 @@ slippage:   0.0005         # 0.05 % slippage
 output_csv: DataManagement\data\PowerBi\results.csv    # summary results written here
 
 strats:
-  - AdxBreakout
-  - AtrChannelReversion
-  - AtrTrailingTrend
-  - BollingerBreakout
-  - BuyAndHold
-  - DonchianTurtle
+#  - AdxBreakout
+#  - AtrChannelReversion
+#  - AtrTrailingTrend
+#  - BollingerBreakout
+#  - BuyAndHold
+#  - DonchianTurtle
   - EmaCross
-  - GoldenCross
   - GoldenCross
 #  - IchimokuTrend
 #  - KeltnerBreakout
@@ -35,15 +34,15 @@ strats:
 symbols:
   - SPY
   - QQQ
-  - MTUM
-  - EEM
-  - TLT
-  - GLD
-  - IEF
-  - MSFT
-  - AAPL
-  - NVDA
-  - META
-  - BTC
-  - IBM
-  - KO
+#  - MTUM
+#  - EEM
+#  - TLT
+#  - GLD
+#  - IEF
+#  - MSFT
+#  - AAPL
+#  - NVDA
+#  - META
+#  - BTC
+#  - IBM
+#  - KO
