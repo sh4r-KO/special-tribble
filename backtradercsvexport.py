@@ -38,7 +38,6 @@ from DataManagement.fetch_stooq_daily import import_stooq
 from strats import *
 from myTools import *
 import backtrader as bt
-from strats import SmaCross
 
 # ─────────────────────────── CONFIGURATION ────────────────────────────
 
@@ -142,9 +141,6 @@ def make_feed(symbol: str,
     return bt.feeds.PandasData(dataname=df)
 
 
-
-
-
 def _safe_add(cerebro: bt.Cerebro, ancls, alias: str | None = None, **kwargs):
     """Attach an analyzer if available / if the current Backtrader build
     supports the given kwargs. Silently skip otherwise."""
@@ -168,7 +164,6 @@ def _extract_tdrawdown(r: Any) -> float:
 # ────────────────────────── CORE BACKTEST RUN ─────────────────────────
 
 def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
-    
     
     cerebro = bt.Cerebro(stdstats=True)
     cerebro.broker.setcash(load_capital())
@@ -294,7 +289,6 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
     }
 
 
-
 # ────────────────────────────── MAIN ─────────────────────────────────
 
 def main():
@@ -311,7 +305,6 @@ def main():
     df.to_csv(CSV_PATH, index=False)
     print("\nSaved results to", CSV_PATH)
     print(df.head())
-
 
 if __name__ == "__main__":
     main()
