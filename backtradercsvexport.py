@@ -16,6 +16,15 @@ Dependencies (same as the original script):
 """
 
 from __future__ import annotations
+
+import os
+os.environ["MPLBACKEND"] = "Agg"  # must be set before pyplot is imported
+import matplotlib
+matplotlib.use("Agg")             
+import matplotlib.pyplot as plt
+plt.ioff()
+
+
 import backtrader as bt
 import pandas as pd
 import yfinance as yf
@@ -28,15 +37,10 @@ from DataManagement.fetch_stooq_daily import import_stooq
 
 from strats import *
 from myTools import *
-
-import matplotlib
-matplotlib.use("Agg")                  # no GUI
-import matplotlib.pyplot as plt
 import backtrader as bt
 from strats import SmaCross
 
 # ─────────────────────────── CONFIGURATION ────────────────────────────
-#START = datetime(2023, 7, 7),END   = datetime(2025, 6, 6)
 
 CONFIG_FILE = "config.yaml"
 
@@ -77,7 +81,6 @@ def make_feed(symbol: str,
     2) If none exists, try a one-time local download/import for this symbol.
     3) If still missing, fall back to yfinance.
     """
-    # ---- 1) local CSV (no network) ----------------------------------------
     cand = _find_local_csv(symbol)
     if cand:
         tf   = bt.TimeFrame.Minutes if "_m" in cand.stem else bt.TimeFrame.Days
@@ -93,7 +96,6 @@ def make_feed(symbol: str,
             openinterest = -1,
         )
 
-    # ---- 2) one-time attempt to populate local cache for this symbol ------
     if symbol not in DOWNLOADED_ONCE:
         try:
             # NOTE: these should be idempotent (no overwrite if file exists)
@@ -119,7 +121,6 @@ def make_feed(symbol: str,
                 openinterest = -1,
             )
 
-    # ---- 3) fallback: yfinance --------------------------------------------
     ysym = symbol.replace(".", "-").upper()
     try:
         df = yf.download(ysym, start=start, end=end, progress=False, threads=False, auto_adjust=auto_adjust)
@@ -268,7 +269,6 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
 
     for i, figs in enumerate(figlists):
         for j, f in enumerate(figs):
-            f.set_size_inches(14, 7)  # optional: resize
             outfile = outdir / f"{symbol}_{strat_cls.__name__}_{i}_{j}.png"
             f.savefig(outfile, dpi=150, bbox_inches="tight")
             plt.close(f)  # free memory
