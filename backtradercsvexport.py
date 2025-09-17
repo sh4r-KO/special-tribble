@@ -12,7 +12,8 @@ an internet connection the first time) and will take a couple of minutes,
 depending on the time‑range and strategy count.
 
 Dependencies (same as the original script):
-    pip install backtrader yfinance pandas matplotlib
+    pip install backtrader yfinance pandas matplotlib yaml
+
 """
 
 from __future__ import annotations
@@ -256,7 +257,7 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
         win_rate = profit_factor = avg_trade_pl = float("nan")
 
     # save png chart(s)
-    outdir = Path("charts")
+    outdir = Path("output/charts")
     outdir.mkdir(exist_ok=True)
 
     figlists = cerebro.plot(iplot=False, style="candlestick", volume=True)
