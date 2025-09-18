@@ -256,19 +256,20 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
     else:
         win_rate = profit_factor = avg_trade_pl = float("nan")
 
-    # save png chart(s)
-    outdir = Path("output/charts")
+    # save png plot chart(s)
+    outdir = Path("output/plots")
     outdir.mkdir(exist_ok=True)
 
-    figlists = cerebro.plot(iplot=False, style="candlestick", volume=True)
+    """figlists = cerebro.plot(iplot=False, style="candlestick", volume=True)
 
-
-    for i, figs in enumerate(figlists):
+    for i, figs in enumerate(figlists):#TODO this double loop seem useless
         for j, f in enumerate(figs):
-            outfile = outdir / f"{symbol}_{strat_cls.__name__}_{i}_{j}.png"
+            outfile = outdir / f"{symbol}_{strat_cls.__name__}_.png"
             f.savefig(outfile, dpi=150, bbox_inches="tight")
             plt.close(f)  # free memory
-            print("Saved:", outfile)
+            print("Saved:", outfile)"""
+
+    
 
     return {
         "Symbol": symbol,
@@ -290,6 +291,54 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
     }
 
 
+
+
+def creategraph(row: dict, thresholds: dict) -> None:
+    outdir = Path("output/graphs")
+    outdir.mkdir(exist_ok=True)
+
+    symbol = row.get("Symbol")
+    strat  = row.get("Strategy")
+
+    color = ["#19183B","#708993","#A1C2BD","#E7F2EF"]
+    #doing the gaugeqs one first
+    for i, (metric_name, metric_value) in enumerate(row.items()):
+
+        if not isinstance(metric_value, (int, float)):
+            continue
+        if math.isnan(metric_value):
+            continue
+
+        # Match thresholds row
+        th = thresholds.get(metric_name.replace("_%", "").replace("_", " "), None)
+        if th is None:
+            print(f"No thresholds for {metric_name}, skipping")
+            continue
+
+        vmin = th["min"]
+        vmax = th["best"]
+        marker = th["good"]
+
+
+        fig, ax = gauge_percent(
+            metric_value,
+            vmin=vmin, vmax=vmax,
+            marker=marker,
+            title=f"{symbol}_{strat}_{metric_name}",
+            as_percent=("_%" in metric_name),
+            color=color
+        )
+
+        #outfile = outdir / f"{symbol}_{strat}_{metric_name}.png"
+        outfile = outdir / f"{metric_name}.png"
+        fig.savefig(outfile, dpi=300, bbox_inches="tight")
+        plt.close(fig)
+        print(f"Saved: {outfile}")
+    
+    #other kpi than gauge : 
+
+
+
 # ────────────────────────────── MAIN ─────────────────────────────────
 
 def main():
@@ -300,6 +349,10 @@ def main():
         for strat_cls in STRATEGIES:
             print(f"    ▶ {strat_cls.__name__}")
             row = run_one(symbol, strat_cls)
+            thresholds = load_thresholds()
+
+
+            creategraph(row, thresholds)
             rows.append(row)
 
     df = pd.DataFrame(rows)

@@ -16,7 +16,7 @@ strats:
 #  - BollingerBreakout
 #  - BuyAndHold
 #  - DonchianTurtle
-  - EmaCross
+#  - EmaCross
   - GoldenCross
 #  - IchimokuTrend
 #  - KeltnerBreakout
@@ -33,7 +33,7 @@ strats:
 
 symbols:
   - SPY
-  - QQQ
+#  - QQQ
 #  - MTUM
 #  - EEM
 #  - TLT
