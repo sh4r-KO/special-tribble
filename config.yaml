@@ -2,7 +2,7 @@
 # ───────────────────────────────────────────────────────────────
 # Global settings (apply to every run unless you override them)
 # ───────────────────────────────────────────────────────────────
-start:  "2005-01-01"       # back-test begins (YYYY-MM-DD)
+start:  "2000-01-01"       # back-test begins (YYYY-MM-DD)
 end:    "2020-01-01"       # back-test ends
 capital:    1000          # starting cash in account currency
 commission: 0.001          # 0.1 % per trade

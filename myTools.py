@@ -2,12 +2,14 @@
 import yaml
 from pathlib import Path
 from collections import OrderedDict
-from yahooquery import Screener
+#from yahooquery import Screener
 import matplotlib.pyplot as plt
 import math
-import matplotlib.pyplot as plt
 from matplotlib.patches import Wedge, Circle
-
+import pandas as pd
+import mplfinance as mpf
+import yfinance as yf
+from datetime import date, timedelta
 # ────────────────────────────────────────────────────────────────
 # 1. Symbols (already finished in your file)
 # ────────────────────────────────────────────────────────────────
@@ -32,13 +34,13 @@ def _load_cfg(yaml_path: str | Path) -> dict:
 def load_startDate(yaml_path: str | Path = "config.yaml") -> str:
     """Return the back-test start date as *string* (ISO-8601)."""
     cfg = _load_cfg(yaml_path)
-    return str(cfg.get("start", "2005-01-01"))
+    return str(cfg.get("start"))
 
 
 def load_endDate(yaml_path: str | Path = "config.yaml") -> str:
     """Return the back-test end date as *string* (ISO-8601)."""
     cfg = _load_cfg(yaml_path)
-    return str(cfg.get("end", "2020-01-01"))
+    return str(cfg.get("end"))
 
 
 def load_capital(yaml_path: str | Path = "config.yaml") -> float:
@@ -102,9 +104,13 @@ def load_strats(yaml_path: str | Path = "config.yaml") -> list[type]:
 
     return selected
 
+def _find_local_csv(symbol: str, DATA_DIRS) -> Path | None:
+    for root in DATA_DIRS:
+        cand = next(root.glob(f"{symbol}*.csv"), None)
+        if cand:
+            return cand
+    return None
 
-import yfinance as yf
-from datetime import date, timedelta
 
 def filter_available(tickers: list[str]) -> list[str]:
     """Return only those tickers for which Yahoo has at least one daily bar."""
@@ -118,13 +124,18 @@ def filter_available(tickers: list[str]) -> list[str]:
             pass                      # network hiccup or 4xx error → skip
     return ok
 
-import math
-import matplotlib.pyplot as plt
-from matplotlib.patches import Wedge, Circle
+def load_thresholds(path="DataManagement\data\PowerBi\Indicator_Target_Thresholds.csv") -> dict:
+    df = pd.read_csv(path)
+    thresholds = {}
+    for _, row in df.iterrows():
+        name = row["indicator"].strip()
+        thresholds[name] = {
+            "min": float(row["minimal target"]),
+            "good": float(row["good target"]),
+            "best": float(row["best target"]),
+        }
+    return thresholds
 
-import math
-import matplotlib.pyplot as plt
-from matplotlib.patches import Wedge, Circle
 
 def gauge_percent(value, 
                   vmin=-1.0, vmax=0.0,           # range as fractions (-1 = -100%, 0 = 0%)
@@ -199,7 +210,7 @@ def gauge_percent(value,
     for tv in (vmin, vmax):
         tick_label = f"{tv:.2%}" if as_percent else f"{tv:.2f}"
         ta = math.radians(val2ang(tv))
-        ax.text(1.2*math.cos(ta), 1.2*math.sin(ta), tick_label,
+        ax.text(1.3*math.cos(ta), 1.2*math.sin(ta), tick_label,
                 ha="center", va="center", fontsize=9, color=Cprimary)
 
     # center label shows the RAW value (even if outside range)
@@ -213,10 +224,12 @@ def gauge_percent(value,
         center_color = Cprimary
 
     ax.text(0, -0.3, center_label, ha="center", va="center", fontsize=26, color=center_color)
-    ax.text(0, 1.32, title, ha="center", va="bottom", fontsize=11)
+    ax.text(0, 1.37, title, ha="center", va="bottom", fontsize=11)
 
     plt.tight_layout()
     return fig, ax
+
+
 
 def main():
 
@@ -233,19 +246,6 @@ def main():
     plt.close(plot[0])  # free memory
     print(f"Saved: {outdir}/{symbol}_{strat}_MaxDrawdown.png")
 
-import pandas as pd
-
-def load_thresholds(path="DataManagement\data\PowerBi\Indicator_Target_Thresholds.csv") -> dict:
-    df = pd.read_csv(path)
-    thresholds = {}
-    for _, row in df.iterrows():
-        name = row["indicator"].strip()
-        thresholds[name] = {
-            "min": float(row["minimal target"]),
-            "good": float(row["good target"]),
-            "best": float(row["best target"]),
-        }
-    return thresholds
 
 
     

@@ -12,13 +12,15 @@ an internet connection the first time) and will take a couple of minutes,
 depending on the time‑range and strategy count.
 
 Dependencies (same as the original script):
-    pip install backtrader yfinance pandas matplotlib yaml
+    (-m) pip install backtrader yfinance pandas matplotlib yaml mplfinance
 
 """
 
 from __future__ import annotations
 
 import os
+
+
 os.environ["MPLBACKEND"] = "Agg"  # must be set before pyplot is imported
 import matplotlib
 matplotlib.use("Agg")             
@@ -35,10 +37,13 @@ import numpy as np
 from pathlib import Path
 from DataManagement.av_downloader import av_doawnloader_main
 from DataManagement.fetch_stooq_daily import import_stooq
+from datetime import datetime
 
 from strats import *
 from myTools import *
-import backtrader as bt
+from myTools import _find_local_csv
+
+import mplfinance as mpf
 
 # ─────────────────────────── CONFIGURATION ────────────────────────────
 
@@ -64,24 +69,22 @@ DATA_DIRS = [
 # ────────────────────────── HELPER FUNCTIONS ──────────────────────────
 DOWNLOADED_ONCE: set[str] = set()   # symbols we already tried to fetch locally
 
-def _find_local_csv(symbol: str) -> Path | None:
-    for root in DATA_DIRS:
-        cand = next(root.glob(f"{symbol}*.csv"), None)
-        if cand:
-            return cand
-    return None
+
 
 
 def make_feed(symbol: str,
-              start="2005-01-01",
-              end=None,
-              auto_adjust=False) -> bt.feeds.PandasData | None:
+              start: str | None = None,
+              end: str | None = None,
+              auto_adjust: bool = False) -> bt.feeds.PandasData | None:
     """
-    1) Try to load a local CSV from DataManagement/data/*.
-    2) If none exists, try a one-time local download/import for this symbol.
-    3) If still missing, fall back to yfinance.
+    1) Try local CSVs (DataManagement/data/*) with fromdate/todate.
+    2) Else download via yfinance using start/end.
     """
-    cand = _find_local_csv(symbol)
+    # normalize dates
+    start_dt = datetime.fromisoformat(start) if start else None
+    end_dt   = datetime.fromisoformat(end)   if end   else None
+
+    cand = _find_local_csv(symbol, DATA_DIRS)
     if cand:
         tf   = bt.TimeFrame.Minutes if "_m" in cand.stem else bt.TimeFrame.Days
         comp = int(cand.stem.split("_")[-1][:-1]) if "_m" in cand.stem else 1
@@ -94,11 +97,13 @@ def make_feed(symbol: str,
             compression  = comp,
             datetime     = 0, open=1, high=2, low=3, close=4, volume=5,
             openinterest = -1,
+            fromdate     = start_dt,
+            todate       = end_dt,
         )
 
+    # one-time try to populate local store
     if symbol not in DOWNLOADED_ONCE:
         try:
-            # NOTE: these should be idempotent (no overwrite if file exists)
             av_doawnloader_main(CONFIG_FILE)
             import_stooq()
         except Exception as err:
@@ -106,7 +111,7 @@ def make_feed(symbol: str,
         finally:
             DOWNLOADED_ONCE.add(symbol)
 
-        cand = _find_local_csv(symbol)
+        cand = _find_local_csv(symbol, DATA_DIRS)
         if cand:
             tf   = bt.TimeFrame.Minutes if "_m" in cand.stem else bt.TimeFrame.Days
             comp = int(cand.stem.split("_")[-1][:-1]) if "_m" in cand.stem else 1
@@ -119,11 +124,21 @@ def make_feed(symbol: str,
                 compression  = comp,
                 datetime     = 0, open=1, high=2, low=3, close=4, volume=5,
                 openinterest = -1,
+                fromdate     = start_dt,
+                todate       = end_dt,
             )
 
+    # fallback: yfinance (dates applied here too)
     ysym = symbol.replace(".", "-").upper()
     try:
-        df = yf.download(ysym, start=start, end=end, progress=False, threads=False, auto_adjust=auto_adjust)
+        df = yf.download(
+            ysym,
+            start=start,       # strings are fine for yfinance
+            end=end,
+            progress=False,
+            threads=False,
+            auto_adjust=auto_adjust
+        )
     except Exception as err:
         print(f"[skip] {symbol}: yfinance error → {err}")
         return None
@@ -173,15 +188,15 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
 
     cerebro.addsizer(bt.sizers.PercentSizer, percents=95)#added for sharpeRatio
     
-    feed = make_feed(symbol)
+    feed = make_feed(symbol, start=load_startDate(), end=load_endDate())
     if feed is None:             
             return {} 
 
     cerebro.adddata(feed, name=symbol)
     cerebro.addstrategy(strat_cls)
 
-    _safe_add(cerebro, bt.analyzers.SharpeRatio,"sharpe",timeframe=bt.TimeFrame.Days)          # ← change
-    _safe_add(cerebro, bt.analyzers.SharpeRatio_A,"sharpe_ann",timeframe=bt.TimeFrame.Days)          # ← change
+    _safe_add(cerebro, bt.analyzers.SharpeRatio,"sharpe",timeframe=bt.TimeFrame.Days)         
+    _safe_add(cerebro, bt.analyzers.SharpeRatio_A,"sharpe_ann",timeframe=bt.TimeFrame.Days)        
     _safe_add(cerebro, bt.analyzers.DrawDown,         "dd")
     _safe_add(cerebro, bt.analyzers.TimeDrawDown,     "tdd")
     _safe_add(cerebro, bt.analyzers.Calmar,           "calmar")
@@ -190,6 +205,8 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
     _safe_add(cerebro, bt.analyzers.SQN,              "sqn")
     _safe_add(cerebro, bt.analyzers.TradeAnalyzer,    "trades")
     _safe_add(cerebro, bt.analyzers.TimeReturn, "trets",timeframe=bt.TimeFrame.Days)
+    _safe_add(cerebro, EntryExitMarks, "marks")     
+
     strat = cerebro.run()[0]
 
 
@@ -260,14 +277,53 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
     outdir = Path("output/plots")
     outdir.mkdir(exist_ok=True)
 
-    """figlists = cerebro.plot(iplot=False, style="candlestick", volume=True)
+    
+    # pretty mplfinance chart with buy/sell markers
+    try:
+        # collect markers
+        recs = getattr(strat.analyzers, "marks").get_analysis() if hasattr(strat.analyzers, "marks") else []
+        buys  = [dt for kind, dt, px in recs if kind == 'buy']
+        sells = [dt for kind, dt, px in recs if kind == 'sell']
 
-    for i, figs in enumerate(figlists):#TODO this double loop seem useless
-        for j, f in enumerate(figs):
-            outfile = outdir / f"{symbol}_{strat_cls.__name__}_.png"
-            f.savefig(outfile, dpi=150, bbox_inches="tight")
-            plt.close(f)  # free memory
-            print("Saved:", outfile)"""
+        # price dataframe
+        df = _price_df_for(symbol)
+
+        # clip to backtest window if you want (optional)
+        df = df.loc[pd.to_datetime(load_startDate()): pd.to_datetime(load_endDate())]
+
+        # build addplots
+        def _marker_series(df, event_dts):
+            if not event_dts:
+                return None
+            # normalize both to dates
+            ev_idx = pd.to_datetime(event_dts).tz_localize(None).normalize()
+            idx_norm = df.index.tz_localize(None).normalize() if df.index.tz is not None else df.index.normalize()
+            mask = idx_norm.isin(ev_idx)
+            # series with NaN except where we have an event (use Close for y)
+            return pd.Series(np.where(mask, df['Close'].values, np.nan), index=df.index)
+
+        buy_ser  = _marker_series(df, buys)
+        sell_ser = _marker_series(df, sells)
+
+        aps = []
+        if buy_ser is not None:
+            aps.append(mpf.make_addplot(buy_ser, type='scatter', marker='^', markersize=80))
+        if sell_ser is not None:
+            aps.append(mpf.make_addplot(sell_ser, type='scatter', marker='v', markersize=80))
+
+        pretty_dir = Path("output/pretty"); pretty_dir.mkdir(parents=True, exist_ok=True)
+        pretty_png = pretty_dir / f"{symbol}_{strat_cls.__name__}.png"
+
+        mpf.plot(
+            df, type='line', volume=True, mav=(12, 26),
+            addplot=aps, style='yahoo',
+            figratio=(16,9), figsize=(12,6),
+            title=f"{symbol} · {strat_cls.__name__}",
+            savefig=dict(fname=str(pretty_png), dpi=180, bbox_inches="tight"),
+        )
+        print("Saved clean chart:", pretty_png)
+    except Exception as e:
+        print("[warn] pretty plot failed:", e)
 
     
 
@@ -280,7 +336,7 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
         "SharpeAnnual": sharpe_ann,
         "Calmar": calmar,
         "MaxDrawdown_%": max_dd,
-        "TimeDD_bars": td_dd,
+        "TimeDD_bars": -td_dd,
         "VWR": vwr,
         "SQN": sqn,
         "WinRate_%": win_rate,
@@ -289,8 +345,6 @@ def run_one(symbol: str, strat_cls) -> Dict[str, Any]:
         "trades_total":trades_total,
         "Sortino": sortino
     }
-
-
 
 
 def creategraph(row: dict, thresholds: dict) -> None:
@@ -337,7 +391,42 @@ def creategraph(row: dict, thresholds: dict) -> None:
     
     #other kpi than gauge : 
 
+ # ────────────────────────── PLOTTING HELPERS ──────────────────────────
 
+class EntryExitMarks(bt.Analyzer):
+    """Record buy/sell moments based on position changes."""
+    def start(self):
+        self.prev_size = 0
+        self.recs = []  # list of tuples: ('buy'|'sell', datetime, price)
+    def next(self):
+        size = self.strategy.position.size
+        if size > 0 and self.prev_size <= 0:                # entry long
+            self.recs.append(('buy',  self.strategy.datetime.datetime(0), float(self.data.close[0])))
+        if size == 0 and self.prev_size != 0:               # flat out
+            self.recs.append(('sell', self.strategy.datetime.datetime(0), float(self.data.close[0])))
+        self.prev_size = size
+    def get_analysis(self):
+        return self.recs
+
+
+def _price_df_for(symbol: str) -> pd.DataFrame:
+    """
+    Return a Pandas OHLCV DataFrame for mplfinance, regardless of data source.
+    Index is DatetimeIndex; columns: Open,High,Low,Close,Volume.
+    """
+    cand = _find_local_csv(symbol, DATA_DIRS)
+    if cand:
+        df = pd.read_csv(cand, parse_dates=['Date'])
+        df = df.rename(columns=str.title).set_index('Date')[['Open','High','Low','Close','Volume']]
+        return df.sort_index()
+
+    # fallback: yfinance (same as make_feed)
+    ysym = symbol.replace('.', '-').upper()
+    df = yf.download(ysym, start=load_startDate(), progress=False, threads=False, auto_adjust=False)
+    if isinstance(df.columns, pd.MultiIndex):
+        df.columns = df.columns.get_level_values(0)
+    df.columns = [c.title() for c in df.columns]
+    return df[['Open','High','Low','Close','Volume']].sort_index()
 
 # ────────────────────────────── MAIN ─────────────────────────────────
 
@@ -357,6 +446,7 @@ def main():
 
     df = pd.DataFrame(rows)
     df.to_csv(CSV_PATH, index=False)
+    df.to_csv("output/results.csv", index=False)
     print("\nSaved results to", CSV_PATH)
     print(df.head())
 
